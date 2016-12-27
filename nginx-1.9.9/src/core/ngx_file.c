@@ -569,10 +569,10 @@ ngx_create_paths(ngx_cycle_t *cycle, ngx_uid_t user)
 
     path = cycle->paths.elts;
     for (i = 0; i < cycle->paths.nelts; i++) {
-/*        ngx_log_error(NGX_LOG_ERR, cycle->log, 0, 
-			"panpan test, in ngx_create_paths, path[i]->name.data", 
+        ngx_log_error(NGX_LOG_ERR, cycle->log, 0, 
+			"panpan test, in ngx_create_paths, path[i]->name.data = %s.\n", 
 			path[i]->name.data);
-*/        if (ngx_create_dir(path[i]->name.data, 0700) == NGX_FILE_ERROR) {
+        if (ngx_create_dir(path[i]->name.data, 0700) == NGX_FILE_ERROR) {
             err = ngx_errno;
             if (err != NGX_EEXIST) {
                 ngx_log_error(NGX_LOG_EMERG, cycle->log, err,

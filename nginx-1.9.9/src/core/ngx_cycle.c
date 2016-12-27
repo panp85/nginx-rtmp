@@ -197,7 +197,7 @@ ngx_init_cycle(ngx_cycle_t *old_cycle)
         ngx_destroy_pool(pool);
         return NULL;
     }
-//    ngx_log_error(NGX_LOG_ERR, log, 0, "panpan test, in hostname = %s.\n", hostname);
+    ngx_log_error(NGX_LOG_ERR, log, 0, "panpan test, in hostname = %s.\n", hostname);
     /* on Linux gethostname() silently truncates name that does not fit */
 
     hostname[NGX_MAXHOSTNAMELEN - 1] = '\0';
@@ -486,7 +486,8 @@ ngx_init_cycle(ngx_cycle_t *old_cycle)
 
 
     /* handle the listening sockets */
-
+    ngx_log_error(NGX_LOG_ERR, log, 0, "panpan test, in ngx_init_cycle, old_cycle->listening.nelts = %d.\n",
+        (int)(old_cycle->listening.nelts));
     if (old_cycle->listening.nelts) {
         ls = old_cycle->listening.elts;
         for (i = 0; i < old_cycle->listening.nelts; i++) {

@@ -1441,7 +1441,9 @@ ngx_http_optimize_servers(ngx_conf_t *cf, ngx_http_core_main_conf_t *cmcf,
     if (ports == NULL) {
         return NGX_OK;
     }
-
+    ngx_log_error(NGX_LOG_ERR, cf->log, 0, 
+		"panpan test, in ngx_http_optimize_servers, ports->nelts = %d.\n", 
+		ports->nelts);
     port = ports->elts;
     for (p = 0; p < ports->nelts; p++) {
 
@@ -1452,7 +1454,9 @@ ngx_http_optimize_servers(ngx_conf_t *cf, ngx_http_core_main_conf_t *cmcf,
          * check whether all name-based servers have the same
          * configuration as a default server for given address:port
          */
-
+        ngx_log_error(NGX_LOG_ERR, cf->log, 0, 
+		    "panpan test, in ngx_http_optimize_servers, port = %d, port[%d].addrs.nelts = %d.\n", 
+		    port[p].port, p, port[p].addrs.nelts);
         addr = port[p].addrs.elts;
         for (a = 0; a < port[p].addrs.nelts; a++) {
 
@@ -1708,9 +1712,9 @@ ngx_http_init_listening(ngx_conf_t *cf, ngx_http_conf_port_t *port)
     i = 0;
 	ngx_log_error(NGX_LOG_EMERG, cf->log, 0,
 							  "panpan test, in ngx_http_init_listening,port->addrs.nelts = %d.\n", (int)last);
-/*	ngx_log_stderr(0, "panpan test, in ngx_http_init_listening,port->addrs.nelts = %d.\n",
+	ngx_log_stderr(0, "panpan test, in ngx_http_init_listening,port->addrs.nelts = %d.\n",
                            (int)last);
-*/
+
     while (i < last) {
 
         if (bind_wildcard && !addr[i].opt.bind) {
@@ -1859,6 +1863,8 @@ ngx_http_add_addrs(ngx_conf_t *cf, ngx_http_port_t *hport,
 
         sin = &addr[i].opt.u.sockaddr_in;
         addrs[i].addr = sin->sin_addr.s_addr;
+		ngx_log_error(NGX_LOG_ERR, cf->log, 0,
+			"panpan test, in ngx_http_add_addrs, addr = %s.\n", inet_ntoa(*(struct in_addr*)(&(addrs[i].addr))));
         addrs[i].conf.default_server = addr[i].default_server;
 #if (NGX_HTTP_SSL)
         addrs[i].conf.ssl = addr[i].opt.ssl;
