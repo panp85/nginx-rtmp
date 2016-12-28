@@ -933,8 +933,8 @@ ngx_http_process_request_line(ngx_event_t *rev)
     c = rev->data;
     r = c->data;
 
-    ngx_log_error(1, rev->log, 0,
-                   "panpan test, in ngx_http_process_request_line, go in.\n");
+/*    ngx_log_error(1, rev->log, 0,
+                   "panpan test, in ngx_http_process_request_line, go in.\n");*/
 
     if (rev->timedout) {
         ngx_log_error(NGX_LOG_INFO, c->log, NGX_ETIMEDOUT, "client timed out");
@@ -1281,8 +1281,8 @@ ngx_http_process_request_headers(ngx_event_t *rev)
 
                 /* there was error while a header line parsing */
 
-                ngx_log_error(NGX_LOG_INFO, c->log, 0,
-                              "client sent invalid header line: \"%*s\"",
+                ngx_log_error(NGX_LOG_ERR, c->log, 0,
+                              "panpan test, in ngx_http_process_request_headers, client sent invalid header line: \"%*s\"",
                               r->header_end - r->header_name_start,
                               r->header_name_start);
                 continue;
@@ -1311,14 +1311,17 @@ ngx_http_process_request_headers(ngx_event_t *rev)
                 ngx_http_close_request(r, NGX_HTTP_INTERNAL_SERVER_ERROR);
                 return;
             }
-
+            
             if (h->key.len == r->lowcase_index) {
                 ngx_memcpy(h->lowcase_key, r->lowcase_header, h->key.len);
 
             } else {
                 ngx_strlow(h->lowcase_key, h->key.data, h->key.len);
             }
-
+/*			ngx_log_error(1, c->log, 0, 
+				"panpan test, in ngx_http_process_request_headers, h->lowcase_key = %s, h->value.data = %s.\n",
+				h->lowcase_key, h->value.data);
+*/
             hh = ngx_hash_find(&cmcf->headers_in_hash, h->hash,
                                h->lowcase_key, h->key.len);
 
@@ -1386,10 +1389,14 @@ ngx_http_read_request_header(ngx_http_request_t *r)
     rev = c->read;
 
     n = r->header_in->last - r->header_in->pos;
+	ngx_log_error(1, c->log, 0,
+			"panpan test, in ngx_http_read_request_header, go in 1.\n");
 
     if (n > 0) {
         return n;
     }
+	ngx_log_error(1, c->log, 0,
+		"panpan test, in ngx_http_read_request_header, go in, continue.\n");
 
     if (rev->ready) {
         n = c->recv(c, r->header_in->last,
