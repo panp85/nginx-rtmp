@@ -29,7 +29,8 @@ ngx_event_process_posted(ngx_cycle_t *cycle, ngx_queue_t *posted)
                       "posted event %p", ev);
 
         ngx_delete_posted_event(ev);
-
+		ngx_log_error(NGX_LOG_ERR, cycle->log, 0,
+					  "panpan test, in ngx_event_process_posted, posted event %p.\n", ev);
         ev->handler(ev);
     }
 }

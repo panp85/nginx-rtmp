@@ -50,6 +50,7 @@ ngx_event_accept(ngx_event_t *ev)
 //       ngx_log_error(NGX_LOG_ALERT,ev->log, ngx_socket_errno,"panpan test, %s\n", strings[j]);
     }
   */  
+    
     if (ev->timedout) {
         if (ngx_enable_accept_events((ngx_cycle_t *) ngx_cycle) != NGX_OK) {
             return;
@@ -70,6 +71,8 @@ ngx_event_accept(ngx_event_t *ev)
 
     ngx_log_debug2(NGX_LOG_DEBUG_EVENT, ev->log, 0,
                    "accept on %V, ready: %d", &ls->addr_text, ev->available);
+	ngx_log_error(NGX_LOG_ERR, ev->log, 0,
+                   "panpan test, in ngx_event_accept, accept on %V, ready: %d", &ls->addr_text, ev->available);
 
     do {
         socklen = NGX_SOCKADDRLEN;
