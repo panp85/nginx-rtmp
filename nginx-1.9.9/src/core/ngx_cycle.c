@@ -606,10 +606,12 @@ ngx_init_cycle(ngx_cycle_t *old_cycle)
 
 
     /* commit the new cycle configuration */
+//	ngx_log_error(NGX_LOG_ERR, log, 0, "panpan test, in ngx_init_cycle, test out 1.\n");
 
     if (!ngx_use_stderr) {
         (void) ngx_log_redirect_stderr(cycle);
     }
+//	ngx_log_error(NGX_LOG_ERR, log, 0, "panpan test, in ngx_init_cycle, test out 2.\n");
 
     pool->log = cycle->log;
 

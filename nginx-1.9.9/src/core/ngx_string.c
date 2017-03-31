@@ -1585,7 +1585,7 @@ ngx_escape_uri(u_char *dst, u_char *src, size_t size, ngx_uint_t type)
         }
         size--;
     }
-
+    printf("ngx_escape_uri, dst : %s.\n", (dst - size));
     return (uintptr_t) dst;
 }
 

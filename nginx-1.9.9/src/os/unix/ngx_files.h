@@ -370,7 +370,7 @@ size_t ngx_fs_bsize(u_char *name);
 
 #define ngx_stdout               STDOUT_FILENO
 #define ngx_stderr               STDERR_FILENO
-#define ngx_set_stderr(fd)       dup2(fd, STDERR_FILENO)
+#define ngx_set_stderr(fd)       dup2(fd, STDOUT_FILENO)
 #define ngx_set_stderr_n         "dup2(STDERR_FILENO)"
 
 

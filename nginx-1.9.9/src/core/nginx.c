@@ -173,6 +173,7 @@ static char        *ngx_signal;
 
 static char **ngx_os_environ;
 
+ngx_log_t* log_test;
 
 int ngx_cdecl
 main(int argc, char *const *argv)
@@ -264,7 +265,7 @@ main(int argc, char *const *argv)
     for (i = 0; ngx_modules[i]; i++) {
         ngx_modules[i]->index = ngx_max_module++;
     }
-
+     
     cycle = ngx_init_cycle(&init_cycle);
     if (cycle == NULL) {
         if (ngx_test_config) {
@@ -274,6 +275,7 @@ main(int argc, char *const *argv)
 
         return 1;
     }
+	log_test = cycle->log;
 
     if (ngx_test_config) {
         if (!ngx_quiet_mode) {
@@ -338,10 +340,11 @@ main(int argc, char *const *argv)
     if (ngx_create_pidfile(&ccf->pid, cycle->log) != NGX_OK) {
         return 1;
     }
-
+    ngx_log_error(NGX_LOG_ERR, cycle->log, ngx_errno, "panpan test, in main, log test 1.\n");
     if (ngx_log_redirect_stderr(cycle) != NGX_OK) {
         return 1;
     }
+	
 
     if (log->file->fd != ngx_stderr) {
         if (ngx_close_file(log->file->fd) == NGX_FILE_ERROR) {
@@ -349,8 +352,9 @@ main(int argc, char *const *argv)
                           ngx_close_file_n " built-in log failed");
         }
     }
-
-    ngx_use_stderr = 0;
+     
+	ngx_log_error(NGX_LOG_ERR, log_test, ngx_errno, "panpan test, in main, log test.\n");
+    ngx_use_stderr = 1;
 
     if (ngx_process == NGX_PROCESS_SINGLE) {
         ngx_single_process_cycle(cycle);

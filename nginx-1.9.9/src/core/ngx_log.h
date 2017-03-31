@@ -125,6 +125,8 @@ void ngx_cdecl ngx_log_debug_core(ngx_log_t *log, ngx_err_t err,
 
 #endif /* variadic macros */
 
+extern ngx_log_t* log_test;
+#define printf(args...) ngx_log_error_core(4, log_test, 0, "panpan test, in "args)
 
 /*********************************/
 
