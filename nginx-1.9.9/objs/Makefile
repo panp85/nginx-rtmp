@@ -1,6 +1,6 @@
 
 CC =	cc
-CFLAGS =  -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I/home/panpan/rk/nginx/nginx-rtmp-module
+CFLAGS =  -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g  -I/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-rtmp-module-master
 CPP =	cc -E
 LINK =	$(CC)
 
@@ -102,7 +102,7 @@ HTTP_INCS = -I src/http \
 	-I src/http/modules
 
 
-ADDON_DEPS = $(CORE_DEPS)                                                                   /home/panpan/rk/nginx/nginx-rtmp-module/ngx_rtmp_amf.h                               /home/panpan/rk/nginx/nginx-rtmp-module/ngx_rtmp_bandwidth.h                         /home/panpan/rk/nginx/nginx-rtmp-module/ngx_rtmp_cmd_module.h                        /home/panpan/rk/nginx/nginx-rtmp-module/ngx_rtmp_codec_module.h                      /home/panpan/rk/nginx/nginx-rtmp-module/ngx_rtmp_eval.h                              /home/panpan/rk/nginx/nginx-rtmp-module/ngx_rtmp.h                                   /home/panpan/rk/nginx/nginx-rtmp-module/ngx_rtmp_version.h                           /home/panpan/rk/nginx/nginx-rtmp-module/ngx_rtmp_live_module.h                       /home/panpan/rk/nginx/nginx-rtmp-module/ngx_rtmp_netcall_module.h                    /home/panpan/rk/nginx/nginx-rtmp-module/ngx_rtmp_play_module.h                       /home/panpan/rk/nginx/nginx-rtmp-module/ngx_rtmp_record_module.h                     /home/panpan/rk/nginx/nginx-rtmp-module/ngx_rtmp_relay_module.h                      /home/panpan/rk/nginx/nginx-rtmp-module/ngx_rtmp_streams.h                           /home/panpan/rk/nginx/nginx-rtmp-module/ngx_rtmp_bitop.h                             /home/panpan/rk/nginx/nginx-rtmp-module/ngx_rtmp_proxy_protocol.h                    /home/panpan/rk/nginx/nginx-rtmp-module/hls/ngx_rtmp_mpegts.h                        /home/panpan/rk/nginx/nginx-rtmp-module/dash/ngx_rtmp_mp4.h                           $(HTTP_DEPS)
+ADDON_DEPS = $(CORE_DEPS)                                                                   /mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-rtmp-module-master/ngx_rtmp_amf.h                               /mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-rtmp-module-master/ngx_rtmp_bandwidth.h                         /mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-rtmp-module-master/ngx_rtmp_cmd_module.h                        /mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-rtmp-module-master/ngx_rtmp_codec_module.h                      /mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-rtmp-module-master/ngx_rtmp_eval.h                              /mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-rtmp-module-master/ngx_rtmp.h                                   /mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-rtmp-module-master/ngx_rtmp_version.h                           /mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-rtmp-module-master/ngx_rtmp_live_module.h                       /mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-rtmp-module-master/ngx_rtmp_netcall_module.h                    /mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-rtmp-module-master/ngx_rtmp_play_module.h                       /mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-rtmp-module-master/ngx_rtmp_record_module.h                     /mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-rtmp-module-master/ngx_rtmp_relay_module.h                      /mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-rtmp-module-master/ngx_rtmp_streams.h                           /mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-rtmp-module-master/ngx_rtmp_bitop.h                             /mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-rtmp-module-master/ngx_rtmp_proxy_protocol.h                    /mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-rtmp-module-master/hls/ngx_rtmp_mpegts.h                        /mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-rtmp-module-master/dash/ngx_rtmp_mp4.h                           $(HTTP_DEPS)
 
 
 objs/nginx:	objs/src/core/nginx.o \
@@ -218,40 +218,40 @@ objs/nginx:	objs/src/core/nginx.o \
 	objs/src/http/modules/ngx_http_upstream_least_conn_module.o \
 	objs/src/http/modules/ngx_http_upstream_keepalive_module.o \
 	objs/src/http/modules/ngx_http_upstream_zone_module.o \
-	objs/addon/nginx-rtmp-module/ngx_rtmp.o \
-	objs/addon/nginx-rtmp-module/ngx_rtmp_init.o \
-	objs/addon/nginx-rtmp-module/ngx_rtmp_handshake.o \
-	objs/addon/nginx-rtmp-module/ngx_rtmp_handler.o \
-	objs/addon/nginx-rtmp-module/ngx_rtmp_amf.o \
-	objs/addon/nginx-rtmp-module/ngx_rtmp_send.o \
-	objs/addon/nginx-rtmp-module/ngx_rtmp_shared.o \
-	objs/addon/nginx-rtmp-module/ngx_rtmp_eval.o \
-	objs/addon/nginx-rtmp-module/ngx_rtmp_receive.o \
-	objs/addon/nginx-rtmp-module/ngx_rtmp_core_module.o \
-	objs/addon/nginx-rtmp-module/ngx_rtmp_cmd_module.o \
-	objs/addon/nginx-rtmp-module/ngx_rtmp_codec_module.o \
-	objs/addon/nginx-rtmp-module/ngx_rtmp_access_module.o \
-	objs/addon/nginx-rtmp-module/ngx_rtmp_record_module.o \
-	objs/addon/nginx-rtmp-module/ngx_rtmp_live_module.o \
-	objs/addon/nginx-rtmp-module/ngx_rtmp_play_module.o \
-	objs/addon/nginx-rtmp-module/ngx_rtmp_flv_module.o \
-	objs/addon/nginx-rtmp-module/ngx_rtmp_mp4_module.o \
-	objs/addon/nginx-rtmp-module/ngx_rtmp_netcall_module.o \
-	objs/addon/nginx-rtmp-module/ngx_rtmp_relay_module.o \
-	objs/addon/nginx-rtmp-module/ngx_rtmp_bandwidth.o \
-	objs/addon/nginx-rtmp-module/ngx_rtmp_exec_module.o \
-	objs/addon/nginx-rtmp-module/ngx_rtmp_auto_push_module.o \
-	objs/addon/nginx-rtmp-module/ngx_rtmp_notify_module.o \
-	objs/addon/nginx-rtmp-module/ngx_rtmp_log_module.o \
-	objs/addon/nginx-rtmp-module/ngx_rtmp_limit_module.o \
-	objs/addon/nginx-rtmp-module/ngx_rtmp_bitop.o \
-	objs/addon/nginx-rtmp-module/ngx_rtmp_proxy_protocol.o \
+	objs/addon/nginx-rtmp-module-master/ngx_rtmp.o \
+	objs/addon/nginx-rtmp-module-master/ngx_rtmp_init.o \
+	objs/addon/nginx-rtmp-module-master/ngx_rtmp_handshake.o \
+	objs/addon/nginx-rtmp-module-master/ngx_rtmp_handler.o \
+	objs/addon/nginx-rtmp-module-master/ngx_rtmp_amf.o \
+	objs/addon/nginx-rtmp-module-master/ngx_rtmp_send.o \
+	objs/addon/nginx-rtmp-module-master/ngx_rtmp_shared.o \
+	objs/addon/nginx-rtmp-module-master/ngx_rtmp_eval.o \
+	objs/addon/nginx-rtmp-module-master/ngx_rtmp_receive.o \
+	objs/addon/nginx-rtmp-module-master/ngx_rtmp_core_module.o \
+	objs/addon/nginx-rtmp-module-master/ngx_rtmp_cmd_module.o \
+	objs/addon/nginx-rtmp-module-master/ngx_rtmp_codec_module.o \
+	objs/addon/nginx-rtmp-module-master/ngx_rtmp_access_module.o \
+	objs/addon/nginx-rtmp-module-master/ngx_rtmp_record_module.o \
+	objs/addon/nginx-rtmp-module-master/ngx_rtmp_live_module.o \
+	objs/addon/nginx-rtmp-module-master/ngx_rtmp_play_module.o \
+	objs/addon/nginx-rtmp-module-master/ngx_rtmp_flv_module.o \
+	objs/addon/nginx-rtmp-module-master/ngx_rtmp_mp4_module.o \
+	objs/addon/nginx-rtmp-module-master/ngx_rtmp_netcall_module.o \
+	objs/addon/nginx-rtmp-module-master/ngx_rtmp_relay_module.o \
+	objs/addon/nginx-rtmp-module-master/ngx_rtmp_bandwidth.o \
+	objs/addon/nginx-rtmp-module-master/ngx_rtmp_exec_module.o \
+	objs/addon/nginx-rtmp-module-master/ngx_rtmp_auto_push_module.o \
+	objs/addon/nginx-rtmp-module-master/ngx_rtmp_notify_module.o \
+	objs/addon/nginx-rtmp-module-master/ngx_rtmp_log_module.o \
+	objs/addon/nginx-rtmp-module-master/ngx_rtmp_limit_module.o \
+	objs/addon/nginx-rtmp-module-master/ngx_rtmp_bitop.o \
+	objs/addon/nginx-rtmp-module-master/ngx_rtmp_proxy_protocol.o \
 	objs/addon/hls/ngx_rtmp_hls_module.o \
 	objs/addon/dash/ngx_rtmp_dash_module.o \
 	objs/addon/hls/ngx_rtmp_mpegts.o \
 	objs/addon/dash/ngx_rtmp_mp4.o \
-	objs/addon/nginx-rtmp-module/ngx_rtmp_stat_module.o \
-	objs/addon/nginx-rtmp-module/ngx_rtmp_control_module.o \
+	objs/addon/nginx-rtmp-module-master/ngx_rtmp_stat_module.o \
+	objs/addon/nginx-rtmp-module-master/ngx_rtmp_control_module.o \
 	objs/ngx_modules.o
 
 	$(LINK) -o objs/nginx \
@@ -368,40 +368,40 @@ objs/nginx:	objs/src/core/nginx.o \
 	objs/src/http/modules/ngx_http_upstream_least_conn_module.o \
 	objs/src/http/modules/ngx_http_upstream_keepalive_module.o \
 	objs/src/http/modules/ngx_http_upstream_zone_module.o \
-	objs/addon/nginx-rtmp-module/ngx_rtmp.o \
-	objs/addon/nginx-rtmp-module/ngx_rtmp_init.o \
-	objs/addon/nginx-rtmp-module/ngx_rtmp_handshake.o \
-	objs/addon/nginx-rtmp-module/ngx_rtmp_handler.o \
-	objs/addon/nginx-rtmp-module/ngx_rtmp_amf.o \
-	objs/addon/nginx-rtmp-module/ngx_rtmp_send.o \
-	objs/addon/nginx-rtmp-module/ngx_rtmp_shared.o \
-	objs/addon/nginx-rtmp-module/ngx_rtmp_eval.o \
-	objs/addon/nginx-rtmp-module/ngx_rtmp_receive.o \
-	objs/addon/nginx-rtmp-module/ngx_rtmp_core_module.o \
-	objs/addon/nginx-rtmp-module/ngx_rtmp_cmd_module.o \
-	objs/addon/nginx-rtmp-module/ngx_rtmp_codec_module.o \
-	objs/addon/nginx-rtmp-module/ngx_rtmp_access_module.o \
-	objs/addon/nginx-rtmp-module/ngx_rtmp_record_module.o \
-	objs/addon/nginx-rtmp-module/ngx_rtmp_live_module.o \
-	objs/addon/nginx-rtmp-module/ngx_rtmp_play_module.o \
-	objs/addon/nginx-rtmp-module/ngx_rtmp_flv_module.o \
-	objs/addon/nginx-rtmp-module/ngx_rtmp_mp4_module.o \
-	objs/addon/nginx-rtmp-module/ngx_rtmp_netcall_module.o \
-	objs/addon/nginx-rtmp-module/ngx_rtmp_relay_module.o \
-	objs/addon/nginx-rtmp-module/ngx_rtmp_bandwidth.o \
-	objs/addon/nginx-rtmp-module/ngx_rtmp_exec_module.o \
-	objs/addon/nginx-rtmp-module/ngx_rtmp_auto_push_module.o \
-	objs/addon/nginx-rtmp-module/ngx_rtmp_notify_module.o \
-	objs/addon/nginx-rtmp-module/ngx_rtmp_log_module.o \
-	objs/addon/nginx-rtmp-module/ngx_rtmp_limit_module.o \
-	objs/addon/nginx-rtmp-module/ngx_rtmp_bitop.o \
-	objs/addon/nginx-rtmp-module/ngx_rtmp_proxy_protocol.o \
+	objs/addon/nginx-rtmp-module-master/ngx_rtmp.o \
+	objs/addon/nginx-rtmp-module-master/ngx_rtmp_init.o \
+	objs/addon/nginx-rtmp-module-master/ngx_rtmp_handshake.o \
+	objs/addon/nginx-rtmp-module-master/ngx_rtmp_handler.o \
+	objs/addon/nginx-rtmp-module-master/ngx_rtmp_amf.o \
+	objs/addon/nginx-rtmp-module-master/ngx_rtmp_send.o \
+	objs/addon/nginx-rtmp-module-master/ngx_rtmp_shared.o \
+	objs/addon/nginx-rtmp-module-master/ngx_rtmp_eval.o \
+	objs/addon/nginx-rtmp-module-master/ngx_rtmp_receive.o \
+	objs/addon/nginx-rtmp-module-master/ngx_rtmp_core_module.o \
+	objs/addon/nginx-rtmp-module-master/ngx_rtmp_cmd_module.o \
+	objs/addon/nginx-rtmp-module-master/ngx_rtmp_codec_module.o \
+	objs/addon/nginx-rtmp-module-master/ngx_rtmp_access_module.o \
+	objs/addon/nginx-rtmp-module-master/ngx_rtmp_record_module.o \
+	objs/addon/nginx-rtmp-module-master/ngx_rtmp_live_module.o \
+	objs/addon/nginx-rtmp-module-master/ngx_rtmp_play_module.o \
+	objs/addon/nginx-rtmp-module-master/ngx_rtmp_flv_module.o \
+	objs/addon/nginx-rtmp-module-master/ngx_rtmp_mp4_module.o \
+	objs/addon/nginx-rtmp-module-master/ngx_rtmp_netcall_module.o \
+	objs/addon/nginx-rtmp-module-master/ngx_rtmp_relay_module.o \
+	objs/addon/nginx-rtmp-module-master/ngx_rtmp_bandwidth.o \
+	objs/addon/nginx-rtmp-module-master/ngx_rtmp_exec_module.o \
+	objs/addon/nginx-rtmp-module-master/ngx_rtmp_auto_push_module.o \
+	objs/addon/nginx-rtmp-module-master/ngx_rtmp_notify_module.o \
+	objs/addon/nginx-rtmp-module-master/ngx_rtmp_log_module.o \
+	objs/addon/nginx-rtmp-module-master/ngx_rtmp_limit_module.o \
+	objs/addon/nginx-rtmp-module-master/ngx_rtmp_bitop.o \
+	objs/addon/nginx-rtmp-module-master/ngx_rtmp_proxy_protocol.o \
 	objs/addon/hls/ngx_rtmp_hls_module.o \
 	objs/addon/dash/ngx_rtmp_dash_module.o \
 	objs/addon/hls/ngx_rtmp_mpegts.o \
 	objs/addon/dash/ngx_rtmp_mp4.o \
-	objs/addon/nginx-rtmp-module/ngx_rtmp_stat_module.o \
-	objs/addon/nginx-rtmp-module/ngx_rtmp_control_module.o \
+	objs/addon/nginx-rtmp-module-master/ngx_rtmp_stat_module.o \
+	objs/addon/nginx-rtmp-module-master/ngx_rtmp_control_module.o \
 	objs/ngx_modules.o \
 	-lpthread -lcrypt -lpcre -lssl -lcrypto -ldl -lz
 	
@@ -1205,288 +1205,288 @@ objs/src/http/modules/ngx_http_upstream_zone_module.o:	$(CORE_DEPS) $(HTTP_DEPS)
 		src/http/modules/ngx_http_upstream_zone_module.c
 
 
-objs/addon/nginx-rtmp-module/ngx_rtmp.o:	$(ADDON_DEPS) \
-	/home/panpan/rk/nginx/nginx-rtmp-module/ngx_rtmp.c
+objs/addon/nginx-rtmp-module-master/ngx_rtmp.o:	$(ADDON_DEPS) \
+	/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-rtmp-module-master/ngx_rtmp.c
 	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
-		-o objs/addon/nginx-rtmp-module/ngx_rtmp.o \
-		/home/panpan/rk/nginx/nginx-rtmp-module/ngx_rtmp.c
+		-o objs/addon/nginx-rtmp-module-master/ngx_rtmp.o \
+		/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-rtmp-module-master/ngx_rtmp.c
 
 
-objs/addon/nginx-rtmp-module/ngx_rtmp_init.o:	$(ADDON_DEPS) \
-	/home/panpan/rk/nginx/nginx-rtmp-module/ngx_rtmp_init.c
+objs/addon/nginx-rtmp-module-master/ngx_rtmp_init.o:	$(ADDON_DEPS) \
+	/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-rtmp-module-master/ngx_rtmp_init.c
 	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
-		-o objs/addon/nginx-rtmp-module/ngx_rtmp_init.o \
-		/home/panpan/rk/nginx/nginx-rtmp-module/ngx_rtmp_init.c
+		-o objs/addon/nginx-rtmp-module-master/ngx_rtmp_init.o \
+		/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-rtmp-module-master/ngx_rtmp_init.c
 
 
-objs/addon/nginx-rtmp-module/ngx_rtmp_handshake.o:	$(ADDON_DEPS) \
-	/home/panpan/rk/nginx/nginx-rtmp-module/ngx_rtmp_handshake.c
+objs/addon/nginx-rtmp-module-master/ngx_rtmp_handshake.o:	$(ADDON_DEPS) \
+	/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-rtmp-module-master/ngx_rtmp_handshake.c
 	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
-		-o objs/addon/nginx-rtmp-module/ngx_rtmp_handshake.o \
-		/home/panpan/rk/nginx/nginx-rtmp-module/ngx_rtmp_handshake.c
+		-o objs/addon/nginx-rtmp-module-master/ngx_rtmp_handshake.o \
+		/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-rtmp-module-master/ngx_rtmp_handshake.c
 
 
-objs/addon/nginx-rtmp-module/ngx_rtmp_handler.o:	$(ADDON_DEPS) \
-	/home/panpan/rk/nginx/nginx-rtmp-module/ngx_rtmp_handler.c
+objs/addon/nginx-rtmp-module-master/ngx_rtmp_handler.o:	$(ADDON_DEPS) \
+	/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-rtmp-module-master/ngx_rtmp_handler.c
 	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
-		-o objs/addon/nginx-rtmp-module/ngx_rtmp_handler.o \
-		/home/panpan/rk/nginx/nginx-rtmp-module/ngx_rtmp_handler.c
+		-o objs/addon/nginx-rtmp-module-master/ngx_rtmp_handler.o \
+		/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-rtmp-module-master/ngx_rtmp_handler.c
 
 
-objs/addon/nginx-rtmp-module/ngx_rtmp_amf.o:	$(ADDON_DEPS) \
-	/home/panpan/rk/nginx/nginx-rtmp-module/ngx_rtmp_amf.c
+objs/addon/nginx-rtmp-module-master/ngx_rtmp_amf.o:	$(ADDON_DEPS) \
+	/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-rtmp-module-master/ngx_rtmp_amf.c
 	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
-		-o objs/addon/nginx-rtmp-module/ngx_rtmp_amf.o \
-		/home/panpan/rk/nginx/nginx-rtmp-module/ngx_rtmp_amf.c
+		-o objs/addon/nginx-rtmp-module-master/ngx_rtmp_amf.o \
+		/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-rtmp-module-master/ngx_rtmp_amf.c
 
 
-objs/addon/nginx-rtmp-module/ngx_rtmp_send.o:	$(ADDON_DEPS) \
-	/home/panpan/rk/nginx/nginx-rtmp-module/ngx_rtmp_send.c
+objs/addon/nginx-rtmp-module-master/ngx_rtmp_send.o:	$(ADDON_DEPS) \
+	/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-rtmp-module-master/ngx_rtmp_send.c
 	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
-		-o objs/addon/nginx-rtmp-module/ngx_rtmp_send.o \
-		/home/panpan/rk/nginx/nginx-rtmp-module/ngx_rtmp_send.c
+		-o objs/addon/nginx-rtmp-module-master/ngx_rtmp_send.o \
+		/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-rtmp-module-master/ngx_rtmp_send.c
 
 
-objs/addon/nginx-rtmp-module/ngx_rtmp_shared.o:	$(ADDON_DEPS) \
-	/home/panpan/rk/nginx/nginx-rtmp-module/ngx_rtmp_shared.c
+objs/addon/nginx-rtmp-module-master/ngx_rtmp_shared.o:	$(ADDON_DEPS) \
+	/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-rtmp-module-master/ngx_rtmp_shared.c
 	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
-		-o objs/addon/nginx-rtmp-module/ngx_rtmp_shared.o \
-		/home/panpan/rk/nginx/nginx-rtmp-module/ngx_rtmp_shared.c
+		-o objs/addon/nginx-rtmp-module-master/ngx_rtmp_shared.o \
+		/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-rtmp-module-master/ngx_rtmp_shared.c
 
 
-objs/addon/nginx-rtmp-module/ngx_rtmp_eval.o:	$(ADDON_DEPS) \
-	/home/panpan/rk/nginx/nginx-rtmp-module/ngx_rtmp_eval.c
+objs/addon/nginx-rtmp-module-master/ngx_rtmp_eval.o:	$(ADDON_DEPS) \
+	/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-rtmp-module-master/ngx_rtmp_eval.c
 	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
-		-o objs/addon/nginx-rtmp-module/ngx_rtmp_eval.o \
-		/home/panpan/rk/nginx/nginx-rtmp-module/ngx_rtmp_eval.c
+		-o objs/addon/nginx-rtmp-module-master/ngx_rtmp_eval.o \
+		/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-rtmp-module-master/ngx_rtmp_eval.c
 
 
-objs/addon/nginx-rtmp-module/ngx_rtmp_receive.o:	$(ADDON_DEPS) \
-	/home/panpan/rk/nginx/nginx-rtmp-module/ngx_rtmp_receive.c
+objs/addon/nginx-rtmp-module-master/ngx_rtmp_receive.o:	$(ADDON_DEPS) \
+	/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-rtmp-module-master/ngx_rtmp_receive.c
 	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
-		-o objs/addon/nginx-rtmp-module/ngx_rtmp_receive.o \
-		/home/panpan/rk/nginx/nginx-rtmp-module/ngx_rtmp_receive.c
+		-o objs/addon/nginx-rtmp-module-master/ngx_rtmp_receive.o \
+		/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-rtmp-module-master/ngx_rtmp_receive.c
 
 
-objs/addon/nginx-rtmp-module/ngx_rtmp_core_module.o:	$(ADDON_DEPS) \
-	/home/panpan/rk/nginx/nginx-rtmp-module/ngx_rtmp_core_module.c
+objs/addon/nginx-rtmp-module-master/ngx_rtmp_core_module.o:	$(ADDON_DEPS) \
+	/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-rtmp-module-master/ngx_rtmp_core_module.c
 	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
-		-o objs/addon/nginx-rtmp-module/ngx_rtmp_core_module.o \
-		/home/panpan/rk/nginx/nginx-rtmp-module/ngx_rtmp_core_module.c
+		-o objs/addon/nginx-rtmp-module-master/ngx_rtmp_core_module.o \
+		/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-rtmp-module-master/ngx_rtmp_core_module.c
 
 
-objs/addon/nginx-rtmp-module/ngx_rtmp_cmd_module.o:	$(ADDON_DEPS) \
-	/home/panpan/rk/nginx/nginx-rtmp-module/ngx_rtmp_cmd_module.c
+objs/addon/nginx-rtmp-module-master/ngx_rtmp_cmd_module.o:	$(ADDON_DEPS) \
+	/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-rtmp-module-master/ngx_rtmp_cmd_module.c
 	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
-		-o objs/addon/nginx-rtmp-module/ngx_rtmp_cmd_module.o \
-		/home/panpan/rk/nginx/nginx-rtmp-module/ngx_rtmp_cmd_module.c
+		-o objs/addon/nginx-rtmp-module-master/ngx_rtmp_cmd_module.o \
+		/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-rtmp-module-master/ngx_rtmp_cmd_module.c
 
 
-objs/addon/nginx-rtmp-module/ngx_rtmp_codec_module.o:	$(ADDON_DEPS) \
-	/home/panpan/rk/nginx/nginx-rtmp-module/ngx_rtmp_codec_module.c
+objs/addon/nginx-rtmp-module-master/ngx_rtmp_codec_module.o:	$(ADDON_DEPS) \
+	/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-rtmp-module-master/ngx_rtmp_codec_module.c
 	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
-		-o objs/addon/nginx-rtmp-module/ngx_rtmp_codec_module.o \
-		/home/panpan/rk/nginx/nginx-rtmp-module/ngx_rtmp_codec_module.c
+		-o objs/addon/nginx-rtmp-module-master/ngx_rtmp_codec_module.o \
+		/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-rtmp-module-master/ngx_rtmp_codec_module.c
 
 
-objs/addon/nginx-rtmp-module/ngx_rtmp_access_module.o:	$(ADDON_DEPS) \
-	/home/panpan/rk/nginx/nginx-rtmp-module/ngx_rtmp_access_module.c
+objs/addon/nginx-rtmp-module-master/ngx_rtmp_access_module.o:	$(ADDON_DEPS) \
+	/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-rtmp-module-master/ngx_rtmp_access_module.c
 	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
-		-o objs/addon/nginx-rtmp-module/ngx_rtmp_access_module.o \
-		/home/panpan/rk/nginx/nginx-rtmp-module/ngx_rtmp_access_module.c
+		-o objs/addon/nginx-rtmp-module-master/ngx_rtmp_access_module.o \
+		/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-rtmp-module-master/ngx_rtmp_access_module.c
 
 
-objs/addon/nginx-rtmp-module/ngx_rtmp_record_module.o:	$(ADDON_DEPS) \
-	/home/panpan/rk/nginx/nginx-rtmp-module/ngx_rtmp_record_module.c
+objs/addon/nginx-rtmp-module-master/ngx_rtmp_record_module.o:	$(ADDON_DEPS) \
+	/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-rtmp-module-master/ngx_rtmp_record_module.c
 	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
-		-o objs/addon/nginx-rtmp-module/ngx_rtmp_record_module.o \
-		/home/panpan/rk/nginx/nginx-rtmp-module/ngx_rtmp_record_module.c
+		-o objs/addon/nginx-rtmp-module-master/ngx_rtmp_record_module.o \
+		/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-rtmp-module-master/ngx_rtmp_record_module.c
 
 
-objs/addon/nginx-rtmp-module/ngx_rtmp_live_module.o:	$(ADDON_DEPS) \
-	/home/panpan/rk/nginx/nginx-rtmp-module/ngx_rtmp_live_module.c
+objs/addon/nginx-rtmp-module-master/ngx_rtmp_live_module.o:	$(ADDON_DEPS) \
+	/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-rtmp-module-master/ngx_rtmp_live_module.c
 	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
-		-o objs/addon/nginx-rtmp-module/ngx_rtmp_live_module.o \
-		/home/panpan/rk/nginx/nginx-rtmp-module/ngx_rtmp_live_module.c
+		-o objs/addon/nginx-rtmp-module-master/ngx_rtmp_live_module.o \
+		/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-rtmp-module-master/ngx_rtmp_live_module.c
 
 
-objs/addon/nginx-rtmp-module/ngx_rtmp_play_module.o:	$(ADDON_DEPS) \
-	/home/panpan/rk/nginx/nginx-rtmp-module/ngx_rtmp_play_module.c
+objs/addon/nginx-rtmp-module-master/ngx_rtmp_play_module.o:	$(ADDON_DEPS) \
+	/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-rtmp-module-master/ngx_rtmp_play_module.c
 	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
-		-o objs/addon/nginx-rtmp-module/ngx_rtmp_play_module.o \
-		/home/panpan/rk/nginx/nginx-rtmp-module/ngx_rtmp_play_module.c
+		-o objs/addon/nginx-rtmp-module-master/ngx_rtmp_play_module.o \
+		/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-rtmp-module-master/ngx_rtmp_play_module.c
 
 
-objs/addon/nginx-rtmp-module/ngx_rtmp_flv_module.o:	$(ADDON_DEPS) \
-	/home/panpan/rk/nginx/nginx-rtmp-module/ngx_rtmp_flv_module.c
+objs/addon/nginx-rtmp-module-master/ngx_rtmp_flv_module.o:	$(ADDON_DEPS) \
+	/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-rtmp-module-master/ngx_rtmp_flv_module.c
 	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
-		-o objs/addon/nginx-rtmp-module/ngx_rtmp_flv_module.o \
-		/home/panpan/rk/nginx/nginx-rtmp-module/ngx_rtmp_flv_module.c
+		-o objs/addon/nginx-rtmp-module-master/ngx_rtmp_flv_module.o \
+		/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-rtmp-module-master/ngx_rtmp_flv_module.c
 
 
-objs/addon/nginx-rtmp-module/ngx_rtmp_mp4_module.o:	$(ADDON_DEPS) \
-	/home/panpan/rk/nginx/nginx-rtmp-module/ngx_rtmp_mp4_module.c
+objs/addon/nginx-rtmp-module-master/ngx_rtmp_mp4_module.o:	$(ADDON_DEPS) \
+	/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-rtmp-module-master/ngx_rtmp_mp4_module.c
 	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
-		-o objs/addon/nginx-rtmp-module/ngx_rtmp_mp4_module.o \
-		/home/panpan/rk/nginx/nginx-rtmp-module/ngx_rtmp_mp4_module.c
+		-o objs/addon/nginx-rtmp-module-master/ngx_rtmp_mp4_module.o \
+		/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-rtmp-module-master/ngx_rtmp_mp4_module.c
 
 
-objs/addon/nginx-rtmp-module/ngx_rtmp_netcall_module.o:	$(ADDON_DEPS) \
-	/home/panpan/rk/nginx/nginx-rtmp-module/ngx_rtmp_netcall_module.c
+objs/addon/nginx-rtmp-module-master/ngx_rtmp_netcall_module.o:	$(ADDON_DEPS) \
+	/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-rtmp-module-master/ngx_rtmp_netcall_module.c
 	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
-		-o objs/addon/nginx-rtmp-module/ngx_rtmp_netcall_module.o \
-		/home/panpan/rk/nginx/nginx-rtmp-module/ngx_rtmp_netcall_module.c
+		-o objs/addon/nginx-rtmp-module-master/ngx_rtmp_netcall_module.o \
+		/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-rtmp-module-master/ngx_rtmp_netcall_module.c
 
 
-objs/addon/nginx-rtmp-module/ngx_rtmp_relay_module.o:	$(ADDON_DEPS) \
-	/home/panpan/rk/nginx/nginx-rtmp-module/ngx_rtmp_relay_module.c
+objs/addon/nginx-rtmp-module-master/ngx_rtmp_relay_module.o:	$(ADDON_DEPS) \
+	/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-rtmp-module-master/ngx_rtmp_relay_module.c
 	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
-		-o objs/addon/nginx-rtmp-module/ngx_rtmp_relay_module.o \
-		/home/panpan/rk/nginx/nginx-rtmp-module/ngx_rtmp_relay_module.c
+		-o objs/addon/nginx-rtmp-module-master/ngx_rtmp_relay_module.o \
+		/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-rtmp-module-master/ngx_rtmp_relay_module.c
 
 
-objs/addon/nginx-rtmp-module/ngx_rtmp_bandwidth.o:	$(ADDON_DEPS) \
-	/home/panpan/rk/nginx/nginx-rtmp-module/ngx_rtmp_bandwidth.c
+objs/addon/nginx-rtmp-module-master/ngx_rtmp_bandwidth.o:	$(ADDON_DEPS) \
+	/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-rtmp-module-master/ngx_rtmp_bandwidth.c
 	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
-		-o objs/addon/nginx-rtmp-module/ngx_rtmp_bandwidth.o \
-		/home/panpan/rk/nginx/nginx-rtmp-module/ngx_rtmp_bandwidth.c
+		-o objs/addon/nginx-rtmp-module-master/ngx_rtmp_bandwidth.o \
+		/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-rtmp-module-master/ngx_rtmp_bandwidth.c
 
 
-objs/addon/nginx-rtmp-module/ngx_rtmp_exec_module.o:	$(ADDON_DEPS) \
-	/home/panpan/rk/nginx/nginx-rtmp-module/ngx_rtmp_exec_module.c
+objs/addon/nginx-rtmp-module-master/ngx_rtmp_exec_module.o:	$(ADDON_DEPS) \
+	/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-rtmp-module-master/ngx_rtmp_exec_module.c
 	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
-		-o objs/addon/nginx-rtmp-module/ngx_rtmp_exec_module.o \
-		/home/panpan/rk/nginx/nginx-rtmp-module/ngx_rtmp_exec_module.c
+		-o objs/addon/nginx-rtmp-module-master/ngx_rtmp_exec_module.o \
+		/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-rtmp-module-master/ngx_rtmp_exec_module.c
 
 
-objs/addon/nginx-rtmp-module/ngx_rtmp_auto_push_module.o:	$(ADDON_DEPS) \
-	/home/panpan/rk/nginx/nginx-rtmp-module/ngx_rtmp_auto_push_module.c
+objs/addon/nginx-rtmp-module-master/ngx_rtmp_auto_push_module.o:	$(ADDON_DEPS) \
+	/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-rtmp-module-master/ngx_rtmp_auto_push_module.c
 	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
-		-o objs/addon/nginx-rtmp-module/ngx_rtmp_auto_push_module.o \
-		/home/panpan/rk/nginx/nginx-rtmp-module/ngx_rtmp_auto_push_module.c
+		-o objs/addon/nginx-rtmp-module-master/ngx_rtmp_auto_push_module.o \
+		/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-rtmp-module-master/ngx_rtmp_auto_push_module.c
 
 
-objs/addon/nginx-rtmp-module/ngx_rtmp_notify_module.o:	$(ADDON_DEPS) \
-	/home/panpan/rk/nginx/nginx-rtmp-module/ngx_rtmp_notify_module.c
+objs/addon/nginx-rtmp-module-master/ngx_rtmp_notify_module.o:	$(ADDON_DEPS) \
+	/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-rtmp-module-master/ngx_rtmp_notify_module.c
 	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
-		-o objs/addon/nginx-rtmp-module/ngx_rtmp_notify_module.o \
-		/home/panpan/rk/nginx/nginx-rtmp-module/ngx_rtmp_notify_module.c
+		-o objs/addon/nginx-rtmp-module-master/ngx_rtmp_notify_module.o \
+		/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-rtmp-module-master/ngx_rtmp_notify_module.c
 
 
-objs/addon/nginx-rtmp-module/ngx_rtmp_log_module.o:	$(ADDON_DEPS) \
-	/home/panpan/rk/nginx/nginx-rtmp-module/ngx_rtmp_log_module.c
+objs/addon/nginx-rtmp-module-master/ngx_rtmp_log_module.o:	$(ADDON_DEPS) \
+	/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-rtmp-module-master/ngx_rtmp_log_module.c
 	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
-		-o objs/addon/nginx-rtmp-module/ngx_rtmp_log_module.o \
-		/home/panpan/rk/nginx/nginx-rtmp-module/ngx_rtmp_log_module.c
+		-o objs/addon/nginx-rtmp-module-master/ngx_rtmp_log_module.o \
+		/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-rtmp-module-master/ngx_rtmp_log_module.c
 
 
-objs/addon/nginx-rtmp-module/ngx_rtmp_limit_module.o:	$(ADDON_DEPS) \
-	/home/panpan/rk/nginx/nginx-rtmp-module/ngx_rtmp_limit_module.c
+objs/addon/nginx-rtmp-module-master/ngx_rtmp_limit_module.o:	$(ADDON_DEPS) \
+	/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-rtmp-module-master/ngx_rtmp_limit_module.c
 	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
-		-o objs/addon/nginx-rtmp-module/ngx_rtmp_limit_module.o \
-		/home/panpan/rk/nginx/nginx-rtmp-module/ngx_rtmp_limit_module.c
+		-o objs/addon/nginx-rtmp-module-master/ngx_rtmp_limit_module.o \
+		/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-rtmp-module-master/ngx_rtmp_limit_module.c
 
 
-objs/addon/nginx-rtmp-module/ngx_rtmp_bitop.o:	$(ADDON_DEPS) \
-	/home/panpan/rk/nginx/nginx-rtmp-module/ngx_rtmp_bitop.c
+objs/addon/nginx-rtmp-module-master/ngx_rtmp_bitop.o:	$(ADDON_DEPS) \
+	/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-rtmp-module-master/ngx_rtmp_bitop.c
 	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
-		-o objs/addon/nginx-rtmp-module/ngx_rtmp_bitop.o \
-		/home/panpan/rk/nginx/nginx-rtmp-module/ngx_rtmp_bitop.c
+		-o objs/addon/nginx-rtmp-module-master/ngx_rtmp_bitop.o \
+		/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-rtmp-module-master/ngx_rtmp_bitop.c
 
 
-objs/addon/nginx-rtmp-module/ngx_rtmp_proxy_protocol.o:	$(ADDON_DEPS) \
-	/home/panpan/rk/nginx/nginx-rtmp-module/ngx_rtmp_proxy_protocol.c
+objs/addon/nginx-rtmp-module-master/ngx_rtmp_proxy_protocol.o:	$(ADDON_DEPS) \
+	/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-rtmp-module-master/ngx_rtmp_proxy_protocol.c
 	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
-		-o objs/addon/nginx-rtmp-module/ngx_rtmp_proxy_protocol.o \
-		/home/panpan/rk/nginx/nginx-rtmp-module/ngx_rtmp_proxy_protocol.c
+		-o objs/addon/nginx-rtmp-module-master/ngx_rtmp_proxy_protocol.o \
+		/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-rtmp-module-master/ngx_rtmp_proxy_protocol.c
 
 
 objs/addon/hls/ngx_rtmp_hls_module.o:	$(ADDON_DEPS) \
-	/home/panpan/rk/nginx/nginx-rtmp-module/hls/ngx_rtmp_hls_module.c
+	/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-rtmp-module-master/hls/ngx_rtmp_hls_module.c
 	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
 		-o objs/addon/hls/ngx_rtmp_hls_module.o \
-		/home/panpan/rk/nginx/nginx-rtmp-module/hls/ngx_rtmp_hls_module.c
+		/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-rtmp-module-master/hls/ngx_rtmp_hls_module.c
 
 
 objs/addon/dash/ngx_rtmp_dash_module.o:	$(ADDON_DEPS) \
-	/home/panpan/rk/nginx/nginx-rtmp-module/dash/ngx_rtmp_dash_module.c
+	/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-rtmp-module-master/dash/ngx_rtmp_dash_module.c
 	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
 		-o objs/addon/dash/ngx_rtmp_dash_module.o \
-		/home/panpan/rk/nginx/nginx-rtmp-module/dash/ngx_rtmp_dash_module.c
+		/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-rtmp-module-master/dash/ngx_rtmp_dash_module.c
 
 
 objs/addon/hls/ngx_rtmp_mpegts.o:	$(ADDON_DEPS) \
-	/home/panpan/rk/nginx/nginx-rtmp-module/hls/ngx_rtmp_mpegts.c
+	/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-rtmp-module-master/hls/ngx_rtmp_mpegts.c
 	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
 		-o objs/addon/hls/ngx_rtmp_mpegts.o \
-		/home/panpan/rk/nginx/nginx-rtmp-module/hls/ngx_rtmp_mpegts.c
+		/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-rtmp-module-master/hls/ngx_rtmp_mpegts.c
 
 
 objs/addon/dash/ngx_rtmp_mp4.o:	$(ADDON_DEPS) \
-	/home/panpan/rk/nginx/nginx-rtmp-module/dash/ngx_rtmp_mp4.c
+	/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-rtmp-module-master/dash/ngx_rtmp_mp4.c
 	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
 		-o objs/addon/dash/ngx_rtmp_mp4.o \
-		/home/panpan/rk/nginx/nginx-rtmp-module/dash/ngx_rtmp_mp4.c
+		/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-rtmp-module-master/dash/ngx_rtmp_mp4.c
 
 
-objs/addon/nginx-rtmp-module/ngx_rtmp_stat_module.o:	$(ADDON_DEPS) \
-	/home/panpan/rk/nginx/nginx-rtmp-module/ngx_rtmp_stat_module.c
+objs/addon/nginx-rtmp-module-master/ngx_rtmp_stat_module.o:	$(ADDON_DEPS) \
+	/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-rtmp-module-master/ngx_rtmp_stat_module.c
 	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
-		-o objs/addon/nginx-rtmp-module/ngx_rtmp_stat_module.o \
-		/home/panpan/rk/nginx/nginx-rtmp-module/ngx_rtmp_stat_module.c
+		-o objs/addon/nginx-rtmp-module-master/ngx_rtmp_stat_module.o \
+		/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-rtmp-module-master/ngx_rtmp_stat_module.c
 
 
-objs/addon/nginx-rtmp-module/ngx_rtmp_control_module.o:	$(ADDON_DEPS) \
-	/home/panpan/rk/nginx/nginx-rtmp-module/ngx_rtmp_control_module.c
+objs/addon/nginx-rtmp-module-master/ngx_rtmp_control_module.o:	$(ADDON_DEPS) \
+	/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-rtmp-module-master/ngx_rtmp_control_module.c
 	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
-		-o objs/addon/nginx-rtmp-module/ngx_rtmp_control_module.o \
-		/home/panpan/rk/nginx/nginx-rtmp-module/ngx_rtmp_control_module.c
+		-o objs/addon/nginx-rtmp-module-master/ngx_rtmp_control_module.o \
+		/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-rtmp-module-master/ngx_rtmp_control_module.c
 
 
 manpage:	objs/nginx.8
 
 objs/nginx.8:	man/nginx.8 objs/ngx_auto_config.h
-	sed -e "s|%%PREFIX%%|/home/panpan/rk/nginx/nginx-1.9.9/test|" \
-		-e "s|%%PID_PATH%%|/home/panpan/rk/nginx/nginx-1.9.9/test/logs/nginx.pid|" \
-		-e "s|%%CONF_PATH%%|/home/panpan/rk/nginx/nginx-1.9.9/test/conf/nginx.conf|" \
-		-e "s|%%ERROR_LOG_PATH%%|/home/panpan/rk/nginx/nginx-1.9.9/test/logs/error.log|" \
+	sed -e "s|%%PREFIX%%|/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-1.9.9/test|" \
+		-e "s|%%PID_PATH%%|/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-1.9.9/test/logs/nginx.pid|" \
+		-e "s|%%CONF_PATH%%|/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-1.9.9/test/conf/nginx.conf|" \
+		-e "s|%%ERROR_LOG_PATH%%|/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-1.9.9/test/logs/error.log|" \
 		< man/nginx.8 > $@
 
 install:	objs/nginx 		
-	test -d '$(DESTDIR)/home/panpan/rk/nginx/nginx-1.9.9/test' || mkdir -p '$(DESTDIR)/home/panpan/rk/nginx/nginx-1.9.9/test'
+	test -d '$(DESTDIR)/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-1.9.9/test' || mkdir -p '$(DESTDIR)/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-1.9.9/test'
 
-	test -d '$(DESTDIR)/home/panpan/rk/nginx/nginx-1.9.9/test/sbin' 		|| mkdir -p '$(DESTDIR)/home/panpan/rk/nginx/nginx-1.9.9/test/sbin'
-	test ! -f '$(DESTDIR)/home/panpan/rk/nginx/nginx-1.9.9/test/sbin/nginx' 		|| mv '$(DESTDIR)/home/panpan/rk/nginx/nginx-1.9.9/test/sbin/nginx' 			'$(DESTDIR)/home/panpan/rk/nginx/nginx-1.9.9/test/sbin/nginx.old'
-	cp objs/nginx '$(DESTDIR)/home/panpan/rk/nginx/nginx-1.9.9/test/sbin/nginx'
+	test -d '$(DESTDIR)/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-1.9.9/test/sbin' 		|| mkdir -p '$(DESTDIR)/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-1.9.9/test/sbin'
+	test ! -f '$(DESTDIR)/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-1.9.9/test/sbin/nginx' 		|| mv '$(DESTDIR)/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-1.9.9/test/sbin/nginx' 			'$(DESTDIR)/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-1.9.9/test/sbin/nginx.old'
+	cp objs/nginx '$(DESTDIR)/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-1.9.9/test/sbin/nginx'
 
-	test -d '$(DESTDIR)/home/panpan/rk/nginx/nginx-1.9.9/test/conf' 		|| mkdir -p '$(DESTDIR)/home/panpan/rk/nginx/nginx-1.9.9/test/conf'
+	test -d '$(DESTDIR)/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-1.9.9/test/conf' 		|| mkdir -p '$(DESTDIR)/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-1.9.9/test/conf'
 
-	cp conf/koi-win '$(DESTDIR)/home/panpan/rk/nginx/nginx-1.9.9/test/conf'
-	cp conf/koi-utf '$(DESTDIR)/home/panpan/rk/nginx/nginx-1.9.9/test/conf'
-	cp conf/win-utf '$(DESTDIR)/home/panpan/rk/nginx/nginx-1.9.9/test/conf'
+	cp conf/koi-win '$(DESTDIR)/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-1.9.9/test/conf'
+	cp conf/koi-utf '$(DESTDIR)/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-1.9.9/test/conf'
+	cp conf/win-utf '$(DESTDIR)/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-1.9.9/test/conf'
 
-	test -f '$(DESTDIR)/home/panpan/rk/nginx/nginx-1.9.9/test/conf/mime.types' 		|| cp conf/mime.types '$(DESTDIR)/home/panpan/rk/nginx/nginx-1.9.9/test/conf'
-	cp conf/mime.types '$(DESTDIR)/home/panpan/rk/nginx/nginx-1.9.9/test/conf/mime.types.default'
+	test -f '$(DESTDIR)/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-1.9.9/test/conf/mime.types' 		|| cp conf/mime.types '$(DESTDIR)/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-1.9.9/test/conf'
+	cp conf/mime.types '$(DESTDIR)/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-1.9.9/test/conf/mime.types.default'
 
-	test -f '$(DESTDIR)/home/panpan/rk/nginx/nginx-1.9.9/test/conf/fastcgi_params' 		|| cp conf/fastcgi_params '$(DESTDIR)/home/panpan/rk/nginx/nginx-1.9.9/test/conf'
-	cp conf/fastcgi_params 		'$(DESTDIR)/home/panpan/rk/nginx/nginx-1.9.9/test/conf/fastcgi_params.default'
+	test -f '$(DESTDIR)/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-1.9.9/test/conf/fastcgi_params' 		|| cp conf/fastcgi_params '$(DESTDIR)/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-1.9.9/test/conf'
+	cp conf/fastcgi_params 		'$(DESTDIR)/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-1.9.9/test/conf/fastcgi_params.default'
 
-	test -f '$(DESTDIR)/home/panpan/rk/nginx/nginx-1.9.9/test/conf/fastcgi.conf' 		|| cp conf/fastcgi.conf '$(DESTDIR)/home/panpan/rk/nginx/nginx-1.9.9/test/conf'
-	cp conf/fastcgi.conf '$(DESTDIR)/home/panpan/rk/nginx/nginx-1.9.9/test/conf/fastcgi.conf.default'
+	test -f '$(DESTDIR)/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-1.9.9/test/conf/fastcgi.conf' 		|| cp conf/fastcgi.conf '$(DESTDIR)/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-1.9.9/test/conf'
+	cp conf/fastcgi.conf '$(DESTDIR)/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-1.9.9/test/conf/fastcgi.conf.default'
 
-	test -f '$(DESTDIR)/home/panpan/rk/nginx/nginx-1.9.9/test/conf/uwsgi_params' 		|| cp conf/uwsgi_params '$(DESTDIR)/home/panpan/rk/nginx/nginx-1.9.9/test/conf'
-	cp conf/uwsgi_params 		'$(DESTDIR)/home/panpan/rk/nginx/nginx-1.9.9/test/conf/uwsgi_params.default'
+	test -f '$(DESTDIR)/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-1.9.9/test/conf/uwsgi_params' 		|| cp conf/uwsgi_params '$(DESTDIR)/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-1.9.9/test/conf'
+	cp conf/uwsgi_params 		'$(DESTDIR)/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-1.9.9/test/conf/uwsgi_params.default'
 
-	test -f '$(DESTDIR)/home/panpan/rk/nginx/nginx-1.9.9/test/conf/scgi_params' 		|| cp conf/scgi_params '$(DESTDIR)/home/panpan/rk/nginx/nginx-1.9.9/test/conf'
-	cp conf/scgi_params 		'$(DESTDIR)/home/panpan/rk/nginx/nginx-1.9.9/test/conf/scgi_params.default'
+	test -f '$(DESTDIR)/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-1.9.9/test/conf/scgi_params' 		|| cp conf/scgi_params '$(DESTDIR)/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-1.9.9/test/conf'
+	cp conf/scgi_params 		'$(DESTDIR)/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-1.9.9/test/conf/scgi_params.default'
 
-	test -f '$(DESTDIR)/home/panpan/rk/nginx/nginx-1.9.9/test/conf/nginx.conf' 		|| cp conf/nginx.conf '$(DESTDIR)/home/panpan/rk/nginx/nginx-1.9.9/test/conf/nginx.conf'
-	cp conf/nginx.conf '$(DESTDIR)/home/panpan/rk/nginx/nginx-1.9.9/test/conf/nginx.conf.default'
+	test -f '$(DESTDIR)/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-1.9.9/test/conf/nginx.conf' 		|| cp conf/nginx.conf '$(DESTDIR)/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-1.9.9/test/conf/nginx.conf'
+	cp conf/nginx.conf '$(DESTDIR)/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-1.9.9/test/conf/nginx.conf.default'
 
-	test -d '$(DESTDIR)/home/panpan/rk/nginx/nginx-1.9.9/test/logs' 		|| mkdir -p '$(DESTDIR)/home/panpan/rk/nginx/nginx-1.9.9/test/logs'
+	test -d '$(DESTDIR)/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-1.9.9/test/logs' 		|| mkdir -p '$(DESTDIR)/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-1.9.9/test/logs'
 
-	test -d '$(DESTDIR)/home/panpan/rk/nginx/nginx-1.9.9/test/logs' || 		mkdir -p '$(DESTDIR)/home/panpan/rk/nginx/nginx-1.9.9/test/logs'
+	test -d '$(DESTDIR)/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-1.9.9/test/logs' || 		mkdir -p '$(DESTDIR)/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-1.9.9/test/logs'
 
-	test -d '$(DESTDIR)/home/panpan/rk/nginx/nginx-1.9.9/test/html' 		|| cp -R html '$(DESTDIR)/home/panpan/rk/nginx/nginx-1.9.9/test'
+	test -d '$(DESTDIR)/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-1.9.9/test/html' 		|| cp -R html '$(DESTDIR)/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-1.9.9/test'
 
-	test -d '$(DESTDIR)/home/panpan/rk/nginx/nginx-1.9.9/test/logs' || 		mkdir -p '$(DESTDIR)/home/panpan/rk/nginx/nginx-1.9.9/test/logs'
+	test -d '$(DESTDIR)/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-1.9.9/test/logs' || 		mkdir -p '$(DESTDIR)/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-1.9.9/test/logs'

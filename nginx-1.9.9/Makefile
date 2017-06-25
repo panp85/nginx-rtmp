@@ -12,10 +12,10 @@ install:
 	$(MAKE) -f objs/Makefile install
 
 upgrade:
-	/home/panpan/rk/nginx/nginx-1.9.9/test/sbin/nginx -t
+	/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-1.9.9/test/sbin/nginx -t
 
-	kill -USR2 `cat /home/panpan/rk/nginx/nginx-1.9.9/test/logs/nginx.pid`
+	kill -USR2 `cat /mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-1.9.9/test/logs/nginx.pid`
 	sleep 1
-	test -f /home/panpan/rk/nginx/nginx-1.9.9/test/logs/nginx.pid.oldbin
+	test -f /mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-1.9.9/test/logs/nginx.pid.oldbin
 
-	kill -QUIT `cat /home/panpan/rk/nginx/nginx-1.9.9/test/logs/nginx.pid.oldbin`
+	kill -QUIT `cat /mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-1.9.9/test/logs/nginx.pid.oldbin`

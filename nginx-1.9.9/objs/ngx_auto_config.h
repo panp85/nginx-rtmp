@@ -1,4 +1,4 @@
-#define NGX_CONFIGURE " --prefix=/mnt/onego/panpan/player/nginx/nginx-rtmp/nginx-1.9.9/test --add-module=/mnt/onego/panpan/player/nginx/nginx-rtmp/nginx-rtmp-module/nginx-rtmp-module --with-http_ssl_module"
+#define NGX_CONFIGURE " --prefix=/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-1.9.9/test --add-module=/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-rtmp-module-master --with-http_ssl_module"
 
 #ifndef NGX_COMPILER
 #define NGX_COMPILER  "gcc 4.6.3 (Ubuntu/Linaro 4.6.3-1ubuntu5) "
@@ -369,7 +369,7 @@
 
 
 #ifndef NGX_PREFIX
-#define NGX_PREFIX  "/mnt/onego/panpan/player/nginx/nginx-rtmp/nginx-1.9.9/test/"
+#define NGX_PREFIX  "/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-1.9.9/test/"
 #endif
 
 
