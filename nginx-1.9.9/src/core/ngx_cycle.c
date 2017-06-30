@@ -362,7 +362,9 @@ ngx_init_cycle(ngx_cycle_t *old_cycle)
         if (file[i].name.len == 0) {
             continue;
         }
-        ngx_log_error(NGX_LOG_ERR, log, 0, "panpan test, in ngx_init_cycle, file[i].name.data = %s.\n", file[i].name.data);
+        ngx_log_error(NGX_LOG_ERR, log, 0, 
+			"panpan test, in ngx_init_cycle, file[i].name.data = %s.\n", 
+			 file[i].name.data);
         file[i].fd = ngx_open_file(file[i].name.data,
                                    NGX_FILE_APPEND,
                                    NGX_FILE_CREATE_OR_OPEN,
@@ -611,7 +613,7 @@ ngx_init_cycle(ngx_cycle_t *old_cycle)
     if (!ngx_use_stderr) {
         (void) ngx_log_redirect_stderr(cycle);
     }
-//	ngx_log_error(NGX_LOG_ERR, log, 0, "panpan test, in ngx_init_cycle, test out 2.\n");
+	ngx_log_error(NGX_LOG_ERR, log, 0, "panpan test, in ngx_init_cycle, test out 2.\n");
 
     pool->log = cycle->log;
 

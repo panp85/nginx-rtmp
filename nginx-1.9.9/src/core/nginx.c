@@ -340,7 +340,7 @@ main(int argc, char *const *argv)
     if (ngx_create_pidfile(&ccf->pid, cycle->log) != NGX_OK) {
         return 1;
     }
-    ngx_log_error(NGX_LOG_ERR, cycle->log, ngx_errno, "panpan test, in main, log test 1.\n");
+//    ngx_log_error(NGX_LOG_ERR, cycle->log, ngx_errno, "panpan test, in main, log test 1.\n");
     if (ngx_log_redirect_stderr(cycle) != NGX_OK) {
         return 1;
     }
@@ -353,7 +353,7 @@ main(int argc, char *const *argv)
         }
     }
      
-	ngx_log_error(NGX_LOG_ERR, log_test, ngx_errno, "panpan test, in main, log test.\n");
+//	ngx_log_error(NGX_LOG_ERR, log_test, ngx_errno, "panpan test, in main, log test.\n");
     ngx_use_stderr = 1;
 
     if (ngx_process == NGX_PROCESS_SINGLE) {
