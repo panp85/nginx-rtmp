@@ -238,11 +238,11 @@ ngx_process_events_and_timers(ngx_cycle_t *cycle)
     }
 
     delta = ngx_current_msec;
-	ngx_log_error(NGX_LOG_EMERG, cycle->log, 0,
-						  "panpan test, in ngx_process_events_and_timers,pid = %d, go to ngx_process_events.\n", ngx_getpid());
+	ngx_log_error(NGX_LOG_EVENT, cycle->log, 0,
+		"panpan test, in ngx_process_events_and_timers,pid = %d, go to ngx_process_events.\n", ngx_getpid());
     (void) ngx_process_events(cycle, timer, flags);
-    ngx_log_error(NGX_LOG_EMERG, cycle->log, 0,
-						  "panpan test, in ngx_process_events_and_timers, after ngx_process_events.\n");
+    ngx_log_error(NGX_LOG_EVENT, cycle->log, 0,
+		"panpan test, in ngx_process_events_and_timers, after ngx_process_events.\n");
 	
     delta = ngx_current_msec - delta;
 

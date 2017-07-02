@@ -116,7 +116,7 @@ ngx_unix_recv(ngx_connection_t *c, u_char *buf, size_t size)
     } while (err == NGX_EINTR);
 
     rev->ready = 0;
-	ngx_log_error(1, c->log, 0,
+	ngx_log_error(NGX_LOG_RECERVE, c->log, 0,
 							   "panpan test, in ngx_unix_recv, recv: %s.\n", buf);
 
     if (n == NGX_ERROR) {
@@ -155,7 +155,7 @@ ngx_unix_recv(ngx_connection_t *c, u_char *buf, size_t size)
             {
                 rev->ready = 0;
             }
-            ngx_log_error(1, c->log, 0,
+            ngx_log_error(NGX_LOG_RECERVE, c->log, 0,
 								   "panpan test, in ngx_unix_recv 2 1, recv: %s, [%d,%d,%d,%d,%d,%d,%d,%d].\n", 
 								   buf, (u_char)buf[0], (u_char)buf[1], (u_char)buf[2], (u_char)buf[3],(u_char)buf[4], (u_char)buf[5],(u_char)buf[6], (u_char)buf[7]);
             return n;
@@ -176,7 +176,7 @@ ngx_unix_recv(ngx_connection_t *c, u_char *buf, size_t size)
     } while (err == NGX_EINTR);
 
     rev->ready = 0;
-	ngx_log_error(1, c->log, 0,
+	ngx_log_error(NGX_LOG_RECERVE, c->log, 0,
 								   "panpan test, in ngx_unix_recv 2, recv: %s, [%d,%d,%d,%d,%d,%d,%d,%d].\n", 
 								   buf, (int)buf[0], (int)buf[1], (int)buf[2], (int)buf[3],(int)buf[4], (int)buf[5],(int)buf[6], (int)buf[7]);
 
