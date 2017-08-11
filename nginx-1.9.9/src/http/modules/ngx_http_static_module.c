@@ -59,7 +59,7 @@ ngx_http_static_handler(ngx_http_request_t *r)
     ngx_open_file_info_t       of;
     ngx_http_core_loc_conf_t  *clcf;
     ngx_log_error(1, r->connection->log, 0,
-                   "panpan test, in ngx_http_static_handler, go in.\n", path.data);
+                   "panpan test, in ngx_http_static_handler, go in.\n");
     if (!(r->method & (NGX_HTTP_GET|NGX_HTTP_HEAD|NGX_HTTP_POST))) {
         return NGX_HTTP_NOT_ALLOWED;
     }

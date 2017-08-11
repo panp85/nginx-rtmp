@@ -1,7 +1,7 @@
-#define NGX_CONFIGURE " --prefix=/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-1.9.9/test --add-module=/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-rtmp-module-master --with-http_ssl_module"
+#define NGX_CONFIGURE " --prefix=/home/panpan/player/nginx-rtmp/nginx-1.9.9/test --add-module=/home/panpan/player/nginx-rtmp/nginx-rtmp-module-master"
 
 #ifndef NGX_COMPILER
-#define NGX_COMPILER  "gcc 4.6.3 (Ubuntu/Linaro 4.6.3-1ubuntu5) "
+#define NGX_COMPILER  "gcc 5.4.0 20160609 (Ubuntu 5.4.0-6ubuntu1~16.04.4) "
 #endif
 
 
@@ -108,6 +108,11 @@
 #endif
 
 
+#ifndef NGX_HAVE_REUSEPORT
+#define NGX_HAVE_REUSEPORT  1
+#endif
+
+
 #ifndef NGX_HAVE_DEFERRED_ACCEPT
 #define NGX_HAVE_DEFERRED_ACCEPT  1
 #endif
@@ -115,6 +120,11 @@
 
 #ifndef NGX_HAVE_KEEPALIVE_TUNABLE
 #define NGX_HAVE_KEEPALIVE_TUNABLE  1
+#endif
+
+
+#ifndef NGX_HAVE_TCP_FASTOPEN
+#define NGX_HAVE_TCP_FASTOPEN  1
 #endif
 
 
@@ -308,11 +318,6 @@
 #endif
 
 
-#ifndef NGX_HTTP_SSL
-#define NGX_HTTP_SSL  1
-#endif
-
-
 #ifndef NGX_HTTP_X_FORWARDED_FOR
 #define NGX_HTTP_X_FORWARDED_FOR  1
 #endif
@@ -325,6 +330,11 @@
 
 #ifndef NGX_PCRE
 #define NGX_PCRE  1
+#endif
+
+
+#ifndef NGX_HAVE_PCRE_JIT
+#define NGX_HAVE_PCRE_JIT  1
 #endif
 
 
@@ -369,7 +379,7 @@
 
 
 #ifndef NGX_PREFIX
-#define NGX_PREFIX  "/mnt/w3/panpan/player/nginx-1.9.9/nginx-pp-git/nginx-rtmp/nginx-1.9.9/test/"
+#define NGX_PREFIX  "/home/panpan/player/nginx-rtmp/nginx-1.9.9/test/"
 #endif
 
 

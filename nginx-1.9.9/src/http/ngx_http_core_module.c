@@ -3195,6 +3195,9 @@ ngx_http_core_location(ngx_conf_t *cf, ngx_command_t *cmd, void *dummy)
             }
         }
     }
+	ngx_conf_log_error(NGX_LOG_EMERG, cf, 0,
+			   "panpan test, in ngx_http_core_location, 1 clcf->name = \"%V\".\n",
+			   &clcf->name);
 
     pclcf = pctx->loc_conf[ngx_http_core_module.ctx_index];
 
@@ -3229,7 +3232,9 @@ ngx_http_core_location(ngx_conf_t *cf, ngx_command_t *cmd, void *dummy)
                                &clcf->name);
             return NGX_CONF_ERROR;
         }
-
+        ngx_conf_log_error(NGX_LOG_EMERG, cf, 0,
+           "panpan test, in ngx_http_core_location, 2 clcf->name = \"%V\".\n",
+           &clcf->name);
         len = pclcf->name.len;
 
 #if (NGX_PCRE)

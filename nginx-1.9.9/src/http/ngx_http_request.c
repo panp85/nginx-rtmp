@@ -965,8 +965,12 @@ ngx_http_process_request_line(ngx_event_t *rev)
             r->request_line.data = r->request_start;
             r->request_length = r->header_in->pos - r->request_start;
 
-            ngx_log_debug1(NGX_LOG_DEBUG_HTTP, c->log, 0,
-                           "http request line: \"%V\"", &r->request_line);
+            ngx_log_error(NGX_LOG_ERR, c->log, 0,
+                           "panpan test, in ngx_http_process_request_line, http request line: \"%V\"\n", &r->request_line);
+			
+			ngx_log_error(NGX_LOG_ERR, c->log, 0,
+				"panpan test, in ngx_http_process_request_line, r->method_name, r->http_protocol: \"%V\", \"%V\"\n", 
+				&r->method_name, &r->http_protocol);
 
             r->method_name.len = r->method_end - r->request_start + 1;
             r->method_name.data = r->request_line.data;
@@ -974,7 +978,7 @@ ngx_http_process_request_line(ngx_event_t *rev)
             if (r->http_protocol.data) {
                 r->http_protocol.len = r->request_end - r->http_protocol.data;
             }
-
+            
             if (ngx_http_process_request_uri(r) != NGX_OK) {
                 return;
             }
@@ -1305,6 +1309,8 @@ ngx_http_process_request_headers(ngx_event_t *rev)
             h->value.len = r->header_end - r->header_start;
             h->value.data = r->header_start;
             h->value.data[h->value.len] = '\0';
+			ngx_log_error(1, r->connection->log, 0, "panpan test, in ngx_http_process_request_headers, h->key.data, h->value.data : %s, %s.\n",
+				h->key.data, h->value.data);
 
             h->lowcase_key = ngx_pnalloc(r->pool, h->key.len);
             if (h->lowcase_key == NULL) {
@@ -1318,10 +1324,10 @@ ngx_http_process_request_headers(ngx_event_t *rev)
             } else {
                 ngx_strlow(h->lowcase_key, h->key.data, h->key.len);
             }
-/*			ngx_log_error(1, c->log, 0, 
+			ngx_log_error(1, c->log, 0, 
 				"panpan test, in ngx_http_process_request_headers, h->lowcase_key = %s, h->value.data = %s.\n",
 				h->lowcase_key, h->value.data);
-*/
+
             hh = ngx_hash_find(&cmcf->headers_in_hash, h->hash,
                                h->lowcase_key, h->key.len);
 
