@@ -640,7 +640,8 @@ ngx_parse_inet_url(ngx_pool_t *pool, ngx_url_t *u)
     u->family = AF_INET;
 
     host = u->url.data;
-
+    ngx_log_stderr(0, "panpan test, in ngx_parse_inet_url, host = %s.\n",
+                           host);    
     last = host + u->url.len;
 
     port = ngx_strlchr(host, last, ':');

@@ -254,9 +254,9 @@ ngx_conf_parse(ngx_conf_t *cf, ngx_str_t *filename)
         /* rc == NGX_OK || rc == NGX_CONF_BLOCK_START */
 
         if (cf->handler) {
-/*            ngx_log_error(NGX_LOG_ERR, cf->log, 0,
+            ngx_log_error(NGX_LOG_ERR, cf->log, 0,
                   "panpan test, in ngx_conf_parse, cf->handler yes, cf->name  = %s.\n", cf->name?cf->name:"null");
-*/            /*
+            /*
              * the custom handler, i.e., that is used in the http's
              * "types { ... }" directive
              */
@@ -281,9 +281,9 @@ ngx_conf_parse(ngx_conf_t *cf, ngx_str_t *filename)
         }
 		else
 		{
-/*			ngx_log_error(NGX_LOG_ERR, cf->log, ngx_errno,
+			ngx_log_error(NGX_LOG_ERR, cf->log, ngx_errno,
 					  "panpan test, in ngx_conf_parse, cf->handler no.\n");
-*/		}
+		}
 
         rc = ngx_conf_handler(cf, rc);
 
@@ -332,7 +332,8 @@ ngx_conf_handler(ngx_conf_t *cf, ngx_int_t last)
     ngx_command_t  *cmd;
 
     name = cf->args->elts;
-
+    ngx_log_error(NGX_LOG_ERR, cf->log, ngx_errno,
+					  "panpan test, in ngx_conf_parse, name->data = %s.\n", name->data);    
     found = 0;
 
     for (i = 0; ngx_modules[i]; i++) {
