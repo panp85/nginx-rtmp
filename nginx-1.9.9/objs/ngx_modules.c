@@ -46,6 +46,7 @@ extern ngx_module_t  ngx_http_limit_req_module;
 extern ngx_module_t  ngx_http_geo_module;
 extern ngx_module_t  ngx_http_map_module;
 extern ngx_module_t  ngx_http_split_clients_module;
+extern ngx_module_t  ngx_http_ssl_module;
 extern ngx_module_t  ngx_http_referer_module;
 extern ngx_module_t  ngx_http_rewrite_module;
 extern ngx_module_t  ngx_http_proxy_module;
@@ -121,6 +122,7 @@ ngx_module_t *ngx_modules[] = {
     &ngx_http_split_clients_module,
     &ngx_http_referer_module,
     &ngx_http_rewrite_module,
+    &ngx_http_ssl_module,
     &ngx_http_proxy_module,
     &ngx_http_fastcgi_module,
     &ngx_http_uwsgi_module,

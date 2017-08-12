@@ -1362,8 +1362,11 @@ ngx_http_core_content_phase(ngx_http_request_t *r,
     size_t     root;
     ngx_int_t  rc;
     ngx_str_t  path;
-
+    ngx_log_error(NGX_LOG_ERR, r->connection->log, 1, 
+		"panpan test, in ngx_http_core_content_phase, go in.\n");
     if (r->content_handler) {
+		ngx_log_error(NGX_LOG_ERR, r->connection->log, 1, 
+		    "panpan test, in ngx_http_core_content_phase, content_handler yes.\n");
         r->write_event_handler = ngx_http_request_empty_handler;
         ngx_http_finalize_request(r, r->content_handler(r));
         return NGX_OK;
